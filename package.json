@@ -1,0 +1,19 @@
+{
+  "name": "18-nosql-social-network-api",
+  "version": "1.0.0",
+  "description": "noSQL MongoDB and Mongoose Backend API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enigmawoman/18-NoSQL-Social-Network-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enigmawoman/18-NoSQL-Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/enigmawoman/18-NoSQL-Social-Network-API#readme"
+}
