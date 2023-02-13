@@ -84,6 +84,10 @@ The code files are fully commented, to explain the flow and logic of the code, s
 <a href="https://drive.google.com/file/d/1x2P6sxFXBdC-oGr2S15Fol5XMSfKWaux/view"><b>Link to FULL VERSION video walkthrough</b></a>
 
 
+https://user-images.githubusercontent.com/112570078/218482184-b3313acb-13b1-4958-b854-0a5c2427924d.mp4
+
+
+
 ## Usage
 
 This code can be used as an example of how to build a backend database using the technologies layed out in the description, if you have any questions or suggestions, please let  know using the links in the [questions](#questions) section of this README.
