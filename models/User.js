@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-// Schema to create Student model
+// Schema to create User model
 const userSchema = new Schema(
   {
     username: {
@@ -15,6 +15,8 @@ const userSchema = new Schema(
       unique: true,
       match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Must match an email address format'],
     },
+
+    // both thought model and the users friends are referenced via their _id's
     thoughts: [
       {
         type: Schema.Types.ObjectId,
@@ -31,12 +33,13 @@ const userSchema = new Schema(
   {
 
     toJSON: {
+      // enables virtuals
       virtuals: true,
     },
     id: false,
   }
 );
-
+// setting up a virtual for counting the friends a user has
 userSchema.virtual('friendCount')
 .get(function () {
   return this.friends.length;

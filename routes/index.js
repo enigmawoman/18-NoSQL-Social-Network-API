@@ -1,3 +1,4 @@
+// this index file allows the routes for both front end(if used) and API routes from other files in the code
 const router = require('express').Router();
 const apiRoutes = require('./api');
 

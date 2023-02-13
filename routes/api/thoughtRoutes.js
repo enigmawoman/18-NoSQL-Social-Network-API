@@ -1,3 +1,6 @@
+
+//setting out all the api routes for the thoughts
+
 const router = require('express').Router();
 const {
   getThought,

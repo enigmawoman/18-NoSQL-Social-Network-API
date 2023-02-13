@@ -2,11 +2,14 @@ const { Thought } = require('../models');
 const User = require('../models/User');
 
 module.exports = {
+  //find all users
   getUsers(req, res) {
     User.find()
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
+
+  // find a single user based on userID
   getSingleUser(req, res) {
      User.findOne({ _id: req.params.userId })
      //populates the friend data - inc the friends of friends
@@ -28,7 +31,7 @@ module.exports = {
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
-
+// update a user based on the userId
   updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -45,7 +48,7 @@ module.exports = {
         res.status(500).json(err);
       });
   },
-
+//delete user based on userId
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
@@ -62,7 +65,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-
+// add a friend to an existing user, using the userid of the frined to add to the user
    addUserFriend(req, res) {
      User.findOneAndUpdate(
        { _id: req.params.userId },
@@ -79,7 +82,7 @@ module.exports = {
    },
 
  
-  // Remove video response
+  // remove a friend of an existing user, using the userid of the friend to remove from the user
   removeUserFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },

@@ -1,6 +1,7 @@
 const { Thought, User } = require('../models');
 
 module.exports = {
+  //get all thoughts
   getThought(req, res) {
     Thought.find()
       .then((thoughts) => res.json(thoughts))
@@ -8,6 +9,7 @@ module.exports = {
       console.log(err)
       res.status(500).json(err)});
   },
+  //get a single thought based on a thoughtId
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .then((thought) =>
@@ -17,7 +19,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  // create a new video
+  // create a new thought with the user id attached so the thought becomes associated with the user who posted.
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
@@ -39,6 +41,8 @@ module.exports = {
         res.status(500).json(err);
       });
   },
+
+  // update a single thought using the thoughtId 
   updateThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -55,6 +59,8 @@ module.exports = {
         res.status(500).json(err);
       });
   },
+
+  //delete a thought using the thoughtid
   deleteThought(req, res) {
     Thought.findOneAndRemove({ _id: req.params.thoughtId })
       .then((thought) =>
@@ -70,12 +76,12 @@ module.exports = {
         !user
           ? res
               .status(404)
-              .json({ message: 'Thought created but no user with this id!' })
+              
           : res.json({ message: 'Thought successfully deleted!' })
       )
       .catch((err) => res.status(500).json(err));
   },
-  // Add a video response
+  // Add a reaction to an existing thought
   addThoughtReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -89,7 +95,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  // Remove video response
+  // Delete a reaction to an existing thought
   removeThoughtReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
