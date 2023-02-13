@@ -1,7 +1,7 @@
 const { Schema, Types } = require('mongoose');
 const { format_date } = require('../utils/helpers')
 
-
+// reaction schema only - this will be referenced from the thought model
 const reactionSchema = new Schema(
   {
     reactionId: {
@@ -25,6 +25,7 @@ const reactionSchema = new Schema(
   },
   {
     toJSON: {
+      //enables the get method above for the date createdAt
       getters: true,
     },
     id: false,

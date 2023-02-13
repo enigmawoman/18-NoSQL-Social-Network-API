@@ -1,4 +1,5 @@
 const router = require('express').Router();
+// listing out all the routes from the user controller
 const {
   getUsers,
   getSingleUser,
